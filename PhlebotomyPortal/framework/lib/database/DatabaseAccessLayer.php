@@ -5,21 +5,21 @@ namespace PhlebotomyPortal;
 use PDO;
 
 
-abstract class DatabaseAccessLayer {
+class DatabaseAccessLayer {
     
     //Holds the PDO database connection object
-    protected $dbconnection;
+    static $dbconnection;
     
     //Holds the PDO ojbect
-    protected $dbObject;
+    static $dbObject;
     
     
     //Class constructor trys to establish a connection.
     //Required to be called in classes extending. Hint parent::__construct();
-    public function __construct() 
+    public function connect()
     {
         try {
-            $this->dbconnection = $this->GetConnection();
+            self::$dbconnection = $this->GetConnection();
         } 
         catch (PDOException $pdoException){
             
@@ -30,12 +30,12 @@ abstract class DatabaseAccessLayer {
     
     //Database connection details.
     public static $Host = "127.0.0.1";
-    public static $DatabaseName = "";
-    public static $DatabaseUser = "";
+    public static $DatabaseName = "phlebotomyportal";
+    public static $DatabaseUser = "root";
     public static $DatabasePassword = ""; 
 
     //Returns a PDO connection object.
-    public function getConnection() 
+    public static function getConnection() 
     {
 
         $this->returnedconnection = null;
@@ -60,17 +60,19 @@ abstract class DatabaseAccessLayer {
     //Now the connection is out the way these methods are required 
     //for inserting and retrieving classes
     
-    public function query($query) {
-        $this->dbObject = $this->dbconnection->prepare($query);
+    public static function query($query) {
+        
+        self::$dbObject = self::$dbconnection->prepare($query);
     }
 
-    public function execute() {
-        return $this->dbObject->execute();
+    public static function execute() {
+        return self::$dbObject->execute();
+        
     }
 
     //This is the binding method that will help prevent SQL injection.
     //The method takes the value and checks for data type if not stated in type.
-    public function bind($param, $value, $type = null) {
+    public static function bind($param, $value, $type = null) {
         if (is_null($type)) {
             switch (true) {
                 case is_int($value):
@@ -86,7 +88,7 @@ abstract class DatabaseAccessLayer {
                     $type = PDO::PARAM_STR;
             }
         }
-        $this->dbObject->bindValue($param, $value, $type);
+        self::$dbObject->bindValue($param, $value, $type);
     }
 
 

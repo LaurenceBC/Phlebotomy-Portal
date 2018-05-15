@@ -15,9 +15,8 @@ namespace PhlebotomyPortal;
  */
 class portalController {
   
-/* @var $ControllerView type */
-$ControllerView = new PhlebotomyPortal\portalView;
-$ControllerModel = new PhlebotomyPortal\portalModel;
+
+
 
     public function __construct() {
         //setup
