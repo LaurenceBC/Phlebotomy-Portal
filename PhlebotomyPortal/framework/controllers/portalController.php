@@ -15,20 +15,20 @@ namespace PhlebotomyPortal;
  */
 class portalController {
   
+    
+    
+    public $Title = "Portal";
+    
+    private $Route = null;
+    
 
-
-
-    public function __construct() {
-        //setup
-        $this->setup(); //Run setup
-        
-        //Start output of contents
-        $this->ControllerView
+    public function __construct($Route = null) {
+        $this->setup($Route);
     }
 
-    function setup() {
+    private function setup($Route) {
         
-        
+        $this->Route = $Route;
 
     }
     
