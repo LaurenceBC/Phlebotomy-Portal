@@ -5,10 +5,9 @@
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/authentication/Authentication.php";
         
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/database/DatabaseInsert.php";
-   
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/router/Router.php";
 
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/router/Router.php";
+
    
 
 session_start();
@@ -62,9 +61,19 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
         <title><?php echo $Route->getTitle()  ?></title>
     </head>
     <body>
+        
+        <header>
+            
+            <menu>
+                
+                
+            </menu>
+            
+        </header>
   
         <div id="PageContents">
             
+            <?php  $Route->ClassObject->executeAction(); ?>
             
         </div>
         
@@ -73,15 +82,6 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
     </body>
     </html>
 
-    
-<!--    //Build route. Which builds the contents
-    $Route = new PhlebotomyPortal\Router();
-    echo 'l';
-    //-->
 
 
-<?php
-}
-
-
-
+<?php } ?>

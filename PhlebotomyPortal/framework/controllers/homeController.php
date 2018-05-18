@@ -1,27 +1,23 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 namespace PhlebotomyPortal;
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/Controller.php";
 
-/**
- * Description of homeController
- *
- * @author larry
- */
-class homeController {
+
+class homeController extends Controller {
+    
+    
+    
     
     
     public $Title = "Home";
     
-    private $Route = null;
+    protected $Route = null;
     
 
-    public function __construct($Route = null) {
+    public function __construct($Route) {
         $this->setup($Route);
     }
 
@@ -30,4 +26,8 @@ class homeController {
         $this->Route = $Route;
 
     }
+    
+   
+  
+    
 }
