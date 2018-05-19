@@ -20,7 +20,8 @@ class Authentication {
         
         $UserData = array('UserID' => null,
                           'UserName' => null,
-                          'UserEmail' => null
+                          'UserEmail' => null,
+                          'UserFirstName' => null
             );
         
         $DatabaseRetrieve = new \PhlebotomyPortal\DatabaseRetrieve();
@@ -30,10 +31,12 @@ class Authentication {
         
         $UserDataRow = $DatabaseRetrieve->getSingleRecord();
         
-        array_push($UserData['UserID'], $UserDataRow['UserID']); //Add user id
-        array_push($UserData['UserName'], $UserDataRow['UserName']); //Add user id
-        
-        
+        $UserData['UserID'] = $UserDataRow['UserID'];
+        $UserData['UserID'] = $UserDataRow['UserName'];
+                
+                
+                
+        return $UserData;
     }
     
     
@@ -64,6 +67,8 @@ class Authentication {
         if($dbaccess->rowCount() == 1) {
             
             if(password_verify($_userPassword, $rowdata['UserPassword'])) {
+               
+                $_SESSION['UserID'] = $rowdata['UserID'];
                 return true;
             } else { 
                 return false; 

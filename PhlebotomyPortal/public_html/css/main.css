@@ -1,0 +1,101 @@
+html{
+    height: 100%;
+}
+
+body{
+    width: 100%;
+    min-height: 100%;
+    border: 0;
+    margin: 0;
+}
+
+#PageContents
+{
+    width: 100%;
+    clear: both;
+    padding: 10px;
+}
+
+#LoginContainer{  
+position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+
+  
+}
+
+nav ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4b72a7;
+    
+}
+
+nav li {
+    float: left;
+  
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
+
+nav #UserPortalNavPanel
+{
+    float: right;
+   
+  
+}
+
+.textbox{
+    /*width: 40%;*/
+    height: 5vh;
+    margin-bottom: 1%;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #4da6ff;
+    font-weight:bold;
+    font-size: 15px;
+}
+
+
+.button{
+   
+    height: 40px;
+    cursor: pointer;
+    padding-bottom: 2%;
+    padding-top: 1%;
+    background-color: #4179B2;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+select{
+   display: block;   
+   border-radius: 5px;
+   border-color: #4da6ff;
+   font-weight:bold;
+   font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+} 
+
