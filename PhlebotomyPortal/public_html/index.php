@@ -81,11 +81,11 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
                         
                         <div id="UserPortalNavPanel">
                             <ul>
-                                <img src="./img/icons/icon_calendar.png" width="50" height="50" alt="icon_logout"/>
+                                <img src="/img/icons/icon_calendar.png" width="50" height="50" alt="icon_logout"/>
 
-                                <img src="./img/icons/icon_user.png" width="50" height="50" alt="icon_logout"/>
+                                <img src="/img/icons/icon_user.png" width="50" height="50" alt="icon_logout"/>
 
-                                <img src="img/icons/icon_logout.png" width="50" height="50" alt="icon_logout"/>
+                                <img src="/img/icons/icon_logout.png" width="50" height="50" alt="icon_logout"/>
 
                             </ul>
                                                  

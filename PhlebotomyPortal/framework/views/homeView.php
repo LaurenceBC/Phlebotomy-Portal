@@ -15,10 +15,13 @@ class homeView extends View {
        
         ?>
         
-        <a href="https://">patients</a>
+        Home page
 
 
         <?php 
+        
+        
+        
         
     }
     

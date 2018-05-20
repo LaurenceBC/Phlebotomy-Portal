@@ -21,7 +21,8 @@ class Router {
     private function buildController($Route) {
 
         
-        if (!isset($Route['controller']) || $Route['controller'] !== 'index.phpController') { //proof i have no clue.
+        if (!isset($Route['controller']) || $Route['controller'] !== 'index.phpController' ||
+                $Route['controller'] !== 'public_htmlController.php') { //proof i have no clue.
             require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/" . $Route['controller'] . ".php";
         } else { //if no controller assume home conntroller
             require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/homeController.php";
@@ -41,6 +42,16 @@ class Router {
             case 'adminController' :
 
 
+
+                break;
+            
+            
+            case 'patientsController' :
+                
+                
+
+                $this->ClassObject = new \PhlebotomyPortal\patientsController($Route);
+                
 
                 break;
 

@@ -16,8 +16,7 @@ abstract class Controller {
      public function __construct() {
          $this->ACL = new ACL();
          $this->UserPermissions = $this->ACL->getPermissionsByUserID($_SESSION['UserID']); //Naughty
-         print_r($this->UserPermissions);
-         
+       
      }
      
      public function executeAction() {
