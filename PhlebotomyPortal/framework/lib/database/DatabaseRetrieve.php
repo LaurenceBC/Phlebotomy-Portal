@@ -5,7 +5,7 @@ namespace PhlebotomyPortal;
 
 use PDO;
 
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/database/DatabaseAccessLayer.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseAccessLayer.php";
 
 class DatabaseRetrieve extends \PhlebotomyPortal\DatabaseAccessLayer {
     

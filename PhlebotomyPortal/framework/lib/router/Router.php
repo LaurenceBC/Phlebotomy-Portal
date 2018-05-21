@@ -21,11 +21,11 @@ class Router {
     private function buildController($Route) {
 
         
-        if (!isset($Route['controller']) || $Route['controller'] !== 'index.phpController' ||
-                $Route['controller'] !== 'public_htmlController.php') { //proof i have no clue.
-            require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/" . $Route['controller'] . ".php";
+        if (isset($Route['controller']) && $Route['controller'] !== 'index.phpController' &&
+                $Route['controller'] !== 'public_htmlController') { //proof i have no clue.
+            require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/" . $Route['controller'] . ".php";
         } else { //if no controller assume home conntroller
-            require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/homeController.php";
+            require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/homeController.php";
         }
 
 

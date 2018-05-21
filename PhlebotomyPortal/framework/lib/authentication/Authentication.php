@@ -3,7 +3,7 @@
 
 namespace PhlebotomyPortal;
 
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/database/DatabaseRetrieve.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseRetrieve.php";
 
 class Authentication {
    

@@ -1,10 +1,8 @@
-
-
 <?php
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/authentication/Authentication.php";
+require_once  realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/authentication/Authentication.php";
 
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/database/DatabaseInsert.php";
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/lib/router/Router.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseInsert.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/router/Router.php";
 
 
 
@@ -26,7 +24,7 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
         <head>
             <meta charset="UTF-8">
             <title>Login</title>
-            <link rel="stylesheet" href="/public_html/css/main.css">
+            <link rel="stylesheet" href="/css/main.css">
         </head>
         <body>
 
@@ -36,69 +34,80 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
                     <input type="hidden" name="login"> 
                     <label>User Name :</label> <input type='text' name='username' value="username" class="textbox" >
                     <label>Password :</label> <input placeholder="**********" type="password" name='password' value="password" class="textbox">
-    <?php
-    if (isset($_POST['login'])) {
-        echo 'Wrong Username or password';
-    }
-    ?>
+                    <?php
+                    if (isset($_POST['login'])) {
+                        echo 'Wrong Username or password';
+                    }
+                    ?>
 
                     <input type="submit"  value="login" class="button"/>
                 </form>
             </div>
 
         </body>
-    <?php
-    //Redirect ?action=login
-} else {
+        <?php
+        //Redirect ?action=login
+    } else {
 
-    //Retrieve user information
-    $UserData = PhlebotomyPortal\Authentication::getUserData($_SESSION['UserID']);
-    //Builds route
-    //Build route. Which builds the contents
-    $Route = new PhlebotomyPortal\Router();
-    ?>
+        //Retrieve user information
+        $UserData = PhlebotomyPortal\Authentication::getUserData($_SESSION['UserID']);
+        //Builds route
+        //Build route. Which builds the contents
+        $Route = new PhlebotomyPortal\Router();
+        ?>
         <html>
             <head>
                 <meta charset="UTF-8">
                 <title><?php echo $Route->getTitle() ?></title>
-                <link rel="stylesheet" href="/public_html/css/main.css">
+                <link rel="stylesheet" href="/css/main.css">
             </head>
             <body>
 
                 <header>
 
                     <nav>
-                        
-                        
+
+
                         <ul>
-                          <li><a href="home">Home</a></li>
-                          <li><a href="portal">Portal</a></li>
-                          <li><a href="patients">Patients</a></li>
-                          
+                            <li><a href="home">Home</a></li>
+                            <li><a href="portal">Portal</a></li>
+                            <li><a href="patients">Patients</a></li>
+
                             <li><a href="patients">Admin</a></li>
-                       
+
                         </ul>
-                        
-                        <div id="UserPortalNavPanel">
-                            <ul>
-                                <img src="/img/icons/icon_calendar.png" width="50" height="50" alt="icon_logout"/>
 
-                                <img src="/img/icons/icon_user.png" width="50" height="50" alt="icon_logout"/>
 
-                                <img src="/img/icons/icon_logout.png" width="50" height="50" alt="icon_logout"/>
 
-                            </ul>
-                                                 
+                    </nav>
+
+                    <div id="UserPortalNavPanel">
+
+                        <img id="HeaderCalendarDropdownMenuIcon" src="img/icons/icon_calendar.png" width="40" height="40" alt="icon_logout"/>
+
+                        <img id="HeaderUserDropdownMenuIcon" src="img/icons/icon_user.png" width="40" height="40" alt="icon_logout"/>
+
+                    
+                        <div id="HeaderCalendarDropdownMenu">
+                            
+                            HEADER CALENDAR
+                            
                         </div>
                         
-                    </nav>
-                    
+                        <div id="HeaderUserDropdownMenu">
+                            
+                            HEADER USER
+                            
+                            
+                        </div>
+                        
 
+                    </div>
                 </header>
 
                 <div id="PageContents">
 
-    <?php $Route->ClassObject->executeAction(); ?>
+                    <?php $Route->ClassObject->executeAction(); ?>
 
                 </div>
 
@@ -109,4 +118,4 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
 
 
 
-<?php } ?>
+    <?php } ?>

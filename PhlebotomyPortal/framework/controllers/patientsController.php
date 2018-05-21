@@ -3,9 +3,9 @@
 namespace PhlebotomyPortal;
 
 
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/Controller.php";
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/views/patientsView.php";
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/models/patientsModel.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/Controller.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/views/patientsView.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/models/patientsModel.php";
 
 
 
@@ -43,22 +43,44 @@ class patientsController extends Controller {
              if(!$this->ACL->hasPermission('ADDPATIENT', $this->UserPermissions)) {
             $this->ControllerView->errorMessage('ADDPATIENTDENIED');
         } else {
-            
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                
-                //Pass post array into model and get back request.
-                
-                //if yay then say yay
-                
-                
-                //if error then error
-                
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {   
+                //Pass post array into model and get back response.
+                //If the record was added then show prompt.
+                if($this->ControllerModel->addPatientRecord($_POST)) {
+                    $this->ControllerView->prompt('SUCCESSFULRECORDADDED');
+                } else {
+                    $this->ControllerView->errorMessage('ERROR');
+                    
+                }                
             } else {
                 $this->ControllerView->addnewpatient();
             }
         }
+    }
+    
+    public function searchpatients($Params = null) {
+          if(!$this->ACL->hasPermission('SEARCHPATIENT', $this->UserPermissions)) {
+            $this->ControllerView->errorMessage('SEARCHPATIENTDENIED');
+        } else {
+            if(!empty($_GET['params'])) 
+            {
+                $Params = explode("/", filter_var($_GET['params']), FILTER_SANITIZE_STRING);
+                $this->ControllerView->searchpatients(false, $Params);
+            } else {
+                $this->ControllerView->searchpatients(true);
+            }
+            
+        }
+    }
+    
+    
+    
+    public function viewpatient($PatientID = null) {
         
-        
+    }
+    
+    
+    public function deletepatient($PatientID) {
         
     }
 

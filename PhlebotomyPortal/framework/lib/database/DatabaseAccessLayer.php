@@ -68,7 +68,16 @@ abstract class DatabaseAccessLayer {
     }
 
     public function execute() {
-         return $this->dbObject->execute();
+        try{
+            if($this->dbObject->execute())
+            {
+                return true;
+            } else { return false; }
+      
+        } catch (Exception $ex) {
+                echo $ex;
+        }
+        
         
     }
 

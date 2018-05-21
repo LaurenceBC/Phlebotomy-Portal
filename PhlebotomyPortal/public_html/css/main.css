@@ -9,24 +9,38 @@ body{
     margin: 0;
 }
 
+header {
+    display: block;
+    width: auto;
+    height: auto;
+    background-color: #4b72a7;
+    min-height: 50px;
+
+}
+
 #PageContents
 {
-/*    width: 100%;*/
+    /*    width: 100%;*/
     clear: both;
     padding: 10px;
 }
 
 #LoginContainer{  
-position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100px;
-  height: 100px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
 
-  
+
+}
+
+nav
+{
+    float: left;
 }
 
 nav ul
@@ -36,12 +50,12 @@ nav ul
     padding: 0;
     overflow: hidden;
     background-color: #4b72a7;
-    
+
 }
 
 nav li {
     float: left;
-  
+
 }
 
 nav li a {
@@ -53,14 +67,36 @@ nav li a {
 }
 
 nav li a:hover {
-    background-color: #111;
+    background-color: #a1b8dd;
+    border-bottom: 1;
 }
 
-nav #UserPortalNavPanel
+#UserPortalNavPanel
 {
     float: right;
-   
-  
+    padding-right: 10px;
+    padding-top: 4px;
+    margin: 0;
+
+
+}
+
+#HeaderCalendarDropdownMenu {
+    visibility:hidden;
+    display:none;
+}
+
+img#HeaderCalendarDropdownMenuIcon:hover + #HeaderCalendarDropdownMenu {
+    
+    display:block;
+    visibility:hidden;
+    
+}
+
+#HeaderUserDropdownMenu
+{
+    visibility: hidden;
+    display: none;
 }
 
 .textbox{
@@ -76,7 +112,7 @@ nav #UserPortalNavPanel
 
 
 .button{
-   
+
     height: 40px;
     cursor: pointer;
     padding-bottom: 2%;
@@ -89,13 +125,50 @@ nav #UserPortalNavPanel
 }
 
 select{
-   display: block;   
-   border-radius: 5px;
-   border-color: #4da6ff;
-   font-weight:bold;
-   font-size: 15px;
+    display: block;   
+    border-radius: 5px;
+    border-color: #4da6ff;
+    font-weight:bold;
+    font-size: 15px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 } 
 
+
+
+
+
+.PatientDetailsContainer
+{
+    
+     
+      margin-top: 10px;
+      margin-bottom: 10px;
+    
+    padding: 10px;
+    width: 48%;
+    box-shadow: 0 0 15px #778ea5;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+}
+.clearDiv{
+    clear: both;
+}
+
+.ContactDetailsContainer
+{
+     
+    
+    margin-top: 10px;
+    margin-bottom: 10px;
+   
+    padding: 10px;
+    width: 48%;
+    box-shadow: 0 0 15px #778ea5;
+    border-radius: 10px;
+   float: right;
+       
+   
+}

@@ -3,8 +3,8 @@
 
 
 namespace PhlebotomyPortal;
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/controllers/Controller.php";
-require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/framework/views/homeView.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/Controller.php";
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/views/homeView.php";
 
 
 class homeController extends Controller {
