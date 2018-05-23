@@ -40,21 +40,16 @@ class Router {
                 break;
 
             case 'adminController' :
-
-
-
+                $this->ClassObject = new \PhlebotomyPortal\adminController($Route);
                 break;
-            
-            
-            case 'patientsController' :
-                
-                
-
+            case 'patientsController' :              
                 $this->ClassObject = new \PhlebotomyPortal\patientsController($Route);
-                
-
                 break;
-
+              case 'appointmentsController' :              
+                $this->ClassObject = new \PhlebotomyPortal\appointmentsController($Route);
+                break;
+            
+            
             //Default is home controller.  
             default :
                 $this->ClassObject = new \PhlebotomyPortal\homeController($Route);
@@ -87,13 +82,13 @@ class Router {
         //so it matches the file name.
         $controller = basename($uri['path']) . "Controller";
         
-        if (!null !== parse_str($uri['query'], $actionstring)) { //Gives us the action
-            $action = $actionstring['action'];
+        if (!null !== parse_str($uri['query'] ?? null, $actionstring)) { //Gives us the action
+            $action = $actionstring['action'] ?? null;
         }
 
 
-        parse_str($uri['query'], $acionparameters);
-        $params = $acionparameters['params'];
+        parse_str($uri['query'] ?? null, $acionparameters);
+        $params = $acionparameters['params'] ?? null;
 
         //Create an array with controll action and array of params
         $RouteArray = array("controller" => $controller,

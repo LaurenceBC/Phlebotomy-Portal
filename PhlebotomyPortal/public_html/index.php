@@ -1,4 +1,8 @@
+
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require_once  realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/authentication/Authentication.php";
 
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseInsert.php";
@@ -72,6 +76,7 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
                             <li><a href="home">Home</a></li>
                             <li><a href="portal">Portal</a></li>
                             <li><a href="patients">Patients</a></li>
+                            <li><a href="appointments">Appointments</a></li>
 
                             <li><a href="patients">Admin</a></li>
 

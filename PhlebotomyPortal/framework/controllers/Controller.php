@@ -25,7 +25,8 @@ abstract class Controller {
         //Pass any parmaters which must be in order first in.
         if(!$this->Route['action'] == null)
         {
-            //this ... is a splat operator. 
+            // ... is a splat operator. 
+           // print_r($this->Route['params']);
             $this->{$this->Route['action']}(...$this->Route['params']);
         } //Else execute main();
         else
