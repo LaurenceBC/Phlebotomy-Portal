@@ -78,7 +78,7 @@ if (!\PhlebotomyPortal\Authentication::isLoggedIN()) {
                             <li><a href="patients">Patients</a></li>
                             <li><a href="appointments">Appointments</a></li>
 
-                            <li><a href="patients">Admin</a></li>
+                            <li><a href="admin">Admin</a></li>
 
                         </ul>
 

@@ -168,6 +168,7 @@ class patientsView extends View {
         if ($Menu) {
             ?>
 
+        <div class="centerbox">
             <div id="searchpatientWrapper">
 
                 <h1>Search patients</h1>
@@ -178,15 +179,19 @@ class patientsView extends View {
 
                     <label>Search by first name</label>
                     <input type='text' name='PatientFirstName' value="" class="textbox">
+                    <br>
                     <label>Search by last name</label>
                     <input type='text' name='PatientLastName' value="" class="textbox">
+                    <br>
                     <label>Search by NHS number</label>
                     <input type='text' name='PatientNHSNumber' value="" class="textbox">
+                    </div>
                     <label>Search by DOB</label>
                     <input type='date' name='PatientDOB' value="" class="textbox">
-
+                    <br>
                     <input type="submit"   class="button"/>
                 </form>
+            </div>
             </div>
 
         <?php } else { //Search patients result html follows   ?>

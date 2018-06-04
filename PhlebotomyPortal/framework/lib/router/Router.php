@@ -20,9 +20,9 @@ class Router {
 
     private function buildController($Route) {
 
-        
+
         if (isset($Route['controller']) && $Route['controller'] !== 'index.phpController' &&
-                $Route['controller'] !== 'public_htmlController') { //proof i have no clue.
+                $Route['controller'] !== 'Controller') {
             require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/" . $Route['controller'] . ".php";
         } else { //if no controller assume home conntroller
             require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/controllers/homeController.php";
@@ -34,22 +34,22 @@ class Router {
             case 'portalController' :
                 //At this point the class will check the user has roles to access
                 $this->ClassObject = new \PhlebotomyPortal\portalController($Route);
-
-
-
                 break;
-
             case 'adminController' :
                 $this->ClassObject = new \PhlebotomyPortal\adminController($Route);
                 break;
-            case 'patientsController' :              
+            case 'patientsController' :
                 $this->ClassObject = new \PhlebotomyPortal\patientsController($Route);
                 break;
-              case 'appointmentsController' :              
+            case 'appointmentsController' :
                 $this->ClassObject = new \PhlebotomyPortal\appointmentsController($Route);
                 break;
-            
-            
+            case 'bloodtestController' :
+                $this->ClassObject = new \PhlebotomyPortal\bloodtestController($Route);
+                break;
+
+
+
             //Default is home controller.  
             default :
                 $this->ClassObject = new \PhlebotomyPortal\homeController($Route);
@@ -81,7 +81,7 @@ class Router {
         //Get the controller name from the URI and append "Controller" to the end.
         //so it matches the file name.
         $controller = basename($uri['path']) . "Controller";
-        
+
         if (!null !== parse_str($uri['query'] ?? null, $actionstring)) { //Gives us the action
             $action = $actionstring['action'] ?? null;
         }

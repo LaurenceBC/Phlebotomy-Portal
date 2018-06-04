@@ -4,12 +4,17 @@
 namespace PhlebotomyPortal;
 
 require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseRetrieve.php";
-
+require_once realpath($_SERVER["DOCUMENT_ROOT"]) . "/../framework/lib/database/DatabaseInsert.php";
 class Authentication {
    
     
  
     private function __construct() {
+        
+    }
+    
+    public static function addUser($UserRegisterDetails)
+    {
         
     }
     
